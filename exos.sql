@@ -104,3 +104,32 @@ WHERE `name` = "Symfony";
 UPDATE languages
 SET `version` = "5.1"
 WHERE `language` = "JavaScript" AND `version` = "5";
+
+/* SQL - Partie 5 : Les jointures */
+
+/* Exercice 1 */
+SELECT * 
+FROM `languages`
+LEFT JOIN `frameworks`
+ON `languages`.`id` = `frameworks`.`language_id`; 
+
+/* Exercice 2 */
+SELECT *
+FROM `frameworks`
+INNER JOIN `languages`
+ON `languages`.`id` = `frameworks`.`language_id`;
+
+-- La requête JOIN seule donne le résultat de la requête INNER JOIN par défaut --
+
+SELECT `name`, `frameworks`.`version` AS `framework_version`, `language`, `languages`.`version` AS `language_version`
+FROM `frameworks`
+INNER JOIN `languages`
+ON `languages`.`id` = `frameworks`.`language_id`;
+-- AS permet de créer des alias afin de clarifier la lecture --
+
+/* Exercice 3 */
+SELECT `languages`.`language`, `languages`.`version`, COUNT(`frameworks`.`id`)
+FROM `languages`
+INNER JOIN `frameworks`
+ON `languages`.`id` = `frameworks`.`language_id`
+GROUP BY `frameworks`.`language_id`; 
