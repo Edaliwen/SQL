@@ -52,7 +52,12 @@ VALUES  ("Symfony", "5.2"),
 /* Exercice 1 */
 SELECT * FROM `languages`;
 
-/* Exercice 1 */
+/* Exercice 2 */
 SELECT `language`, `version`
 FROM `languages` 
-WHERE `language`= 'PHP'; 
+WHERE `language` = 'PHP';
+
+/* Exercice 3 */
+SELECT `language`, `version`
+FROM `languages` 
+WHERE `language` = 'PHP' OR `language` = 'JavaScript'; 
