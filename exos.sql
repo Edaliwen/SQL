@@ -50,25 +50,25 @@ VALUES  ("Symfony", "5.2"),
 /* SQL - Partie 3 : Sélection de données */
 
 /* Exercice 1 */
-SELECT * FROM `languages`;
+SELECT * FROM languages;
 
 /* Exercice 2 */
 SELECT `language`, `version`
-FROM `languages` 
+FROM languages 
 WHERE `language` = 'PHP';
 
 /* Exercice 3 */
 SELECT `language`, `version`
-FROM `languages` 
+FROM languages 
 WHERE `language` = 'PHP' OR `language` = 'JavaScript'; 
 
 /* Exercice 4 */
-SELECT * FROM `languages`
+SELECT * FROM languages
 WHERE `id` = 3 OR `id` = 5 OR `id` = 7;
 
 /* Exercice 5 */
 SELECT `language`, `version`
-FROM `languages` 
+FROM languages 
 WHERE `language` = 'JavaScript'
 LIMIT 0, 2;
 /* LIMIT prend deux valeurs, l'offset et la limite:
@@ -76,16 +76,31 @@ LIMIT 0, 2;
     - la limite est le nombre de champos affichés */
 
 /* Exercice 6 */
-SELECT * FROM `languages`
+SELECT * FROM languages
 WHERE NOT `language` = 'PHP';
 -- ou --
-SELECT * FROM `languages`
+SELECT * FROM languages
 WHERE `language` != 'PHP';
 -- ou --
-SELECT * FROM `languages`
+SELECT * FROM languages
 WHERE `language` <> 'PHP';
 
 /* Exercice 7 */
-SELECT * FROM `languages`
+SELECT * FROM languages
 ORDER BY `language`, `version` DESC;
 -- DESC ici permet d'afficher les versions par ordre décroissant --
+
+/* SQL - Partie 4 : Suppression et modification de données */
+/* Exercice 1 */
+DELETE FROM languages
+WHERE `language` = 'HTML';
+
+/* Exercice 2 */
+UPDATE frameworks
+SET `name` = "Symfony2"
+WHERE `name` = "Symfony";
+
+/* Exercice 3 */
+UPDATE languages
+SET `version` = "5.1"
+WHERE `language` = "JavaScript" AND `version` = "5";
