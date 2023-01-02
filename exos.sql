@@ -61,3 +61,31 @@ WHERE `language` = 'PHP';
 SELECT `language`, `version`
 FROM `languages` 
 WHERE `language` = 'PHP' OR `language` = 'JavaScript'; 
+
+/* Exercice 4 */
+SELECT * FROM `languages`
+WHERE `id` = 3 OR `id` = 5 OR `id` = 7;
+
+/* Exercice 5 */
+SELECT `language`, `version`
+FROM `languages` 
+WHERE `language` = 'JavaScript'
+LIMIT 0, 2;
+/* LIMIT prend deux valeurs, l'offset et la limite:
+    - l'offset est le nombre de rangs ignorés
+    - la limite est le nombre de champos affichés */
+
+/* Exercice 6 */
+SELECT * FROM `languages`
+WHERE NOT `language` = 'PHP';
+-- ou --
+SELECT * FROM `languages`
+WHERE `language` != 'PHP';
+-- ou --
+SELECT * FROM `languages`
+WHERE `language` <> 'PHP';
+
+/* Exercice 7 */
+SELECT * FROM `languages`
+ORDER BY `language`, `version` DESC;
+-- DESC ici permet d'afficher les versions par ordre décroissant --
