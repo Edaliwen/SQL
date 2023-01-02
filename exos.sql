@@ -1,4 +1,4 @@
-/* Partie 1 */
+/* SQL - Création de bases de données */
 -- commentaire --
 
 /* Exercice 1 */
@@ -25,3 +25,24 @@ ADD `version` varchar(10);
 /* Exercice 5 */
 ALTER TABLE frameworks
 ADD `version` varchar(10);
+
+/* SQL - Partie 2 : Insertion de données */
+
+/* Exercice 1 */
+INSERT INTO languages (`language`, `version`)
+VALUES  ("JavaScript", "5"),
+        ("PHP", "5.2"),
+        ("PHP", "5"),
+        ("HTML", "4"),
+        ("HTML", "5"),
+        ("JavaScript", "6"),
+        ("JavaScript", "7"),
+        ("JavaScript", "8"),
+        ("PHP", "7");
+
+/* Exercice 2 */
+INSERT INTO frameworks (`name`, `version`)
+VALUES  ("Symfony", "5.2"),
+        ("Symfony", "6"),
+        ("Bootstrap", "3.3"),
+        ("Bootstrap", "5.2"); 
