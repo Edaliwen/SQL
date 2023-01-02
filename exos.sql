@@ -10,3 +10,18 @@ CREATE TABLE languages (
     `language` varchar(20),
     PRIMARY KEY (`id`)
 );
+
+/* Exercice 3 */
+CREATE TABLE frameworks (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(20),
+    PRIMARY KEY (`id`)
+);
+
+/* Exercice 4 */
+ALTER TABLE languages
+ADD `version` varchar(10);
+
+/* Exercice 5 */
+ALTER TABLE frameworks
+ADD `version` varchar(10);
