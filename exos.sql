@@ -46,3 +46,13 @@ VALUES  ("Symfony", "5.2"),
         ("Symfony", "6"),
         ("Bootstrap", "3.3"),
         ("Bootstrap", "5.2"); 
+
+/* SQL - Partie 3 : Sélection de données */
+
+/* Exercice 1 */
+SELECT * FROM `languages`;
+
+/* Exercice 1 */
+SELECT `language`, `version`
+FROM `languages` 
+WHERE `language`= 'PHP'; 
