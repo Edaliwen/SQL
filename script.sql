@@ -89,22 +89,57 @@ ORDER BY `g_pegi` ASC;
 
 /* Exercice 14 :
 Affichez le nom de jeu et les plateformes de tous les jeux triés par ordre alphabétique */
-SELECT `g_name`,
+SELECT `g_name`, `p_name`
+FROM games
+JOIN games_platforms
+ON games.`g_id` = games_platforms.`g_id`
+JOIN platforms
+ON platforms.`p_id` = games_platforms.`p_id`
+ORDER BY `p_name` ASC;
 
 /* Exercice 15 :
 Calculez le nombre total de jeux. */
+SELECT COUNT(`g_name`)
+FROM games;
 
 /* Exercice 16 :
 Affichez le nombre de jeux uniques. */
+SELECT COUNT(DISTINCT `g_name`)
+FROM games;
 
 /* Exercice 17 :
 Calculez le nombre de jeux par studio. */
+SELECT studios.`s_name`, COUNT(`g_name`)
+FROM studios
+JOIN games
+ON studios.`s_id` = games.`s_id`
+GROUP BY studios.`s_name`;
 
 /* Exercice 18 :
 Calculez le nombre de jeux par studio et par plateforme */
+SELECT `s_name`, `p_name`, COUNT(`g_name`)
+FROM games
+JOIN studios
+ON studios.`s_id` = games.`s_id`
+JOIN games_platforms
+ON games.`g_id` = games_platforms.`g_id`
+JOIN platforms
+ON platforms.`p_id` = games_platforms.`p_id`
+GROUP BY studios.`s_name`, platforms.`p_name`;
 
 /* Exercice 19 :
 Affichez les jeux disponibles sur au moins 4 plateformes */
+SELECT `g_name`, COUNT(`p_name`) AS `plateformes_dispos`
+FROM games
+JOIN games_platforms
+ON games.`g_id` = games_platforms.`g_id`
+JOIN platforms
+ON platforms.`p_id` = games_platforms.`p_id`
+GROUP BY `g_name`
+HAVING COUNT(`p_name`) > 3;
 
 /* Exercice 20 :
 Calculez le nombre moyen de jeux par plateforme */
+SELECT AVG(`g_id`) AS `moyenne_des_jeux_par_plateforme`
+FROM games_platforms;
+
