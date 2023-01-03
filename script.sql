@@ -33,7 +33,7 @@ WHERE `g_mode` NOT LIKE '%/%';
 Affichez le nom et la date de sortie des jeux sortie entre 2015 et 2020 triés par année */
 SELECT `g_name`, `g_published_at`
 FROM games
-WHERE `g_published_at` BETWEEN '2015-01-01' AND '2020-12-31'
+WHERE YEAR(`g_published_at`) BETWEEN 2015 AND 2020
 ORDER BY `g_published_at` ASC;
 
 /* Exercice 7 :
@@ -64,8 +64,7 @@ WHERE `g_published_at` LIKE '%2015%' OR `g_published_at` LIKE '%2016%' OR `g_pub
 Affichez le nom de jeu et le studio de tous les jeux. Utiliser une jointure naturelle. */
 SELECT `g_name`, `s_name`
 FROM games
-JOIN studios
-ON `games`.`s_id` = `studios`.`s_id`;
+NATURAL JOIN studios;
 
 /* Exercice 12 :
 Affichez le nom de jeu, le studio, la nationalité de la société des jeux disponibles. Utiliser une
