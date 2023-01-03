@@ -76,18 +76,18 @@ ON `games`.`s_id` = `studios`.`s_id`;
 
 /* Exercice 13 :
 Affichez le nom et le mode de jeu des jeux console grand public triés par pegi croissant */
+-- ici j'utilise à nouveau la jointure naturelle --
 SELECT `g_name`, `g_mode`, `p_name`, `g_pegi`
 FROM games
-JOIN games_platforms
-ON games.`g_id` = games_platforms.`g_id`
-JOIN platforms
-ON platforms.`p_id` = games_platforms.`p_id`
+NATURAL JOIN games_platforms
+NATURAL JOIN platforms
 WHERE `p_name` NOT LIKE 'PC' AND `p_name` NOT LIKE 'MAC' AND `g_pegi` < 16
 ORDER BY `g_pegi` ASC;
 
 
 /* Exercice 14 :
 Affichez le nom de jeu et les plateformes de tous les jeux triés par ordre alphabétique */
+-- une autre façon de faire la jointure, mais on peut aussi utiliser la jointure naturelle --
 SELECT `g_name`, `p_name`
 FROM games
 JOIN games_platforms
